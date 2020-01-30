@@ -1,0 +1,41 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Juno",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddamjengi1020/PORTFOLIO.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "JUNO",
+  "homepage": "https://github.com/ddamjengi1020/PORTFOLIO#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "autoprefixer": "^9.7.4",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^7.0.0",
+    "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "helmet": "^3.21.2",
+    "morgan": "^1.9.1",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "postcss-loader": "^3.0.0",
+    "pug": "^2.0.4",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "dev:server": "nodemon --exec babel-node src/init.js --ignore 'scss'",
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w"
+  }
+}
