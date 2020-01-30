@@ -1,11 +1,11 @@
->**PORTFOLIO**
+# **PORTFOLIO**
 
-1. about *ME* []
+* about **ME** []
 
-2. language []
+* language []
 
-3. skills []
+* skills []
 
-4. project []
+* project []
 
-5. Git []
+* Git []
