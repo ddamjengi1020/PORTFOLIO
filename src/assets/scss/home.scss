@@ -1,4 +1,50 @@
-img{
+article{
+    margin-top: 450px;
+    margin-bottom: 450px;
     width: 100%;
-    position: absolute;
+    .section{
+        background-color: white;
+        &:nth-child(2) {
+            background-color: rgb(238, 237, 237);
+        }
+        .about {
+            padding: 100px;
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            text-align: center;
+            align-items: center;
+            .about__title{
+                font-size: 60px;
+                color: rgb(71, 68, 68);
+                font-family: 'Bebas Neue', cursive;
+            }
+            .about__description {
+                padding: 0px 50px 20px 50px;
+                color: rgb(71, 68, 68);
+                font-size: 18px;
+                font-family: SCDream4;
+                line-height: 1.4;
+            }
+        }
+        .skills {
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .skills__title {
+                font-size: 60px;
+                color: rgb(71, 68, 68);
+                font-family: 'Bebas Neue', cursive;
+                margin-bottom: 40px;
+            }
+            .skills__description {
+                img {
+                    width: 100px;
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
 }

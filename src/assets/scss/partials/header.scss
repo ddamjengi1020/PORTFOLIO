@@ -1,9 +1,12 @@
 header{
     width: 100%;
     .header__container{
+        max-height: 30px;
+        height: 100%;
         z-index: 9;
-        background-color: rgba(0, 0, 0, 0.781);
+        background-color: rgba(51, 51, 51, 0.5);
         position: fixed;
+        top: 0;
         left: 0;
         right: 0;
         margin-left: auto;
@@ -12,18 +15,37 @@ header{
         padding: 30px 50px 20px 50px;
         display: flex;
         justify-content: center;
+        align-items: center;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        .header__contents{
+        .container__header-contents{
             display: flex;
             li{
-                font-size: 35px;
+                font-size: 25px;
+                font-family: 'Rajdhani', sans-serif;
                 color: white;
                 &:not(:last-child){
                     margin-right: 25px;
                 }
             }
-            
         }
+    }
+}
+
+@keyframes scrollEvent {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-80px);
+    }
+}
+
+@keyframes scrollEventDefault {
+    from {
+        transform: translateY(-80px);
+    }
+    to {
+        transform: translateY(0);
     }
 }
