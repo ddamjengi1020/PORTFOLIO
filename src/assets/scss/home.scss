@@ -11,9 +11,9 @@ article{
             padding: 100px;
             display: grid;
             grid-template-columns: 1fr 5fr;
-            text-align: center;
             align-items: center;
             .about__title{
+                text-align: center;
                 font-size: 60px;
                 color: rgb(71, 68, 68);
                 font-family: 'Bebas Neue', cursive;
