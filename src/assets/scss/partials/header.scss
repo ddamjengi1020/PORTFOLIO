@@ -1,32 +1,28 @@
 header{
-    width: 100%;
     .header__container{
-        max-height: 30px;
+        max-height: 200px;
         height: 100%;
-        z-index: 9;
-        background-color: rgba(51, 51, 51, 0.5);
+        z-index: 1;
         position: fixed;
-        top: 0;
-        right: 0;
+        top: 40%;
+        right: 2%;
         margin-left: auto;
-        width: 280px;
-        padding: 30px 50px 20px 50px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-bottom-left-radius: 20px;
         .container__header-contents{
             display: flex;
+            flex-direction: column;
+            align-items: flex-end;
             li{
+                margin-bottom: 20px;
                 &.scrollColor{
                     color: rgb(64, 216, 243);
                 }
                 font-size: 25px;
-                font-family: 'Rajdhani', sans-serif;
-                color: white;
-                &:not(:last-child){
-                    margin-right: 25px;
-                }
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: green;
             }
         }
     }
@@ -34,27 +30,25 @@ header{
 
 @keyframes scrollEvent {
     0%{
-        max-height: 30px;
-        width: 280px;
-        padding: 30px 50px 20px 50px;
+        top: 40%;
+    }
+    10%{
+        top: 35%;
     }
     100%{
-        max-height: 10px;
-        width: 320px;
-        padding: 15px 50px 10px 50px;
+        top: 40%;
     }
 }
 
 @keyframes scrollEventDefault {
-    from {
-        max-height: 10px;
-        width: 320px;
-        padding: 15px 50px 10px 50px;
+    0% {
+        top: 40%;
     }
-    to {
-        max-height: 30px;
-        width: 280px;
-        padding: 30px 50px 20px 50px;
+    10% {
+        top: 45%;
+    }
+    100%{
+        top: 40%;
     }
 }
 
