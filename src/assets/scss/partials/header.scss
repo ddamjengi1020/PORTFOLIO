@@ -22,35 +22,12 @@ header{
                 }
                 font-size: 25px;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                color: green;
+                color: rgba(0, 0, 0, 0.637);
             }
         }
     }
 }
 
-@keyframes scrollEvent {
-    0%{
-        top: 40%;
-    }
-    10%{
-        top: 35%;
-    }
-    100%{
-        top: 40%;
-    }
-}
-
-@keyframes scrollEventDefault {
-    0% {
-        top: 40%;
-    }
-    10% {
-        top: 45%;
-    }
-    100%{
-        top: 40%;
-    }
-}
 
 @keyframes scrollEventFont {
     from{
