@@ -1,48 +1,37 @@
 header{
     .header__container{
-        max-height: 200px;
-        height: 100%;
-        z-index: 1;
-        position: fixed;
-        top: 40%;
-        right: 2%;
-        margin-left: auto;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: fit-content;
+        height: fit-content;
+        padding: 12px 6px;
+        z-index: 1;       
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.623);
         .container__header-contents{
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             li{
-                margin-bottom: 20px;
-                &.scrollColor{
-                    color: rgb(64, 216, 243);
+                &:not(:last-child){
+                    margin-bottom: 25px;
                 }
-                font-size: 25px;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                color: rgba(0, 0, 0, 0.637);
+                width: 8px;
+                height: 8px;
+                background-color: rgb(170, 169, 169);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            li:hover{
+                background-color: whitesmoke;
+            }
+            li.point{
+                background-color: whitesmoke;
             }
         }
-    }
-}
-
-
-@keyframes scrollEventFont {
-    from{
-        font-size: 25px;
-    }
-    to{
-        font-size: 20px
-    }
-}
-
-@keyframes scrollDefaultFont {
-    from{
-        font-size: 20px;
-    }
-    to{
-        font-size: 25px
     }
 }

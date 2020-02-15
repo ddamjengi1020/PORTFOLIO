@@ -1,56 +1,120 @@
-const headerContainer = document.getElementById("jsHeaderContainer");
-const headerContents = document.getElementById("jsHeaderContents");
-const li = headerContents.querySelectorAll("li");
+const body = document.querySelector("body");
+const headerUl = document.getElementById("jsHeaderContents");
+const headerLi = document.querySelectorAll("li");
 
-const COLOR = "scrollColor";
+let leftWS = 10; // 오른쪽 여백
+let topWS = 0; // 위쪽 여백
+let scrollTop = 280; // 스크롤시 브라우저 위쪽과 떨어지는 거리
+let scrollStart = 280; // 스크롤 시작위치
+let activateSpeed = 15; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+let scrollSpeed = 10; //스크롤 속도 (클수록 느림)
 
-const headerColor = () => {
+let timer;
+
+const RefreshStaticMenu = () => {
+  let startPoint, endPoint;
+  startPoint = parseInt(document.getElementById("STATICMENU").style.top, 10);
+  endPoint =
+    Math.max(document.documentElement.scrollTop, document.body.scrollTop) +
+    scrollTop;
+  if (endPoint < topWS) {
+    endPoint = topWS;
+  }
+  if (startPoint != endPoint) {
+    scrollAmount = Math.ceil(Math.abs(endPoint - startPoint) / 15);
+    document.getElementById("STATICMENU").style.top =
+      parseInt(document.getElementById("STATICMENU").style.top, 10) +
+      (endPoint < startPoint ? -scrollAmount : scrollAmount) +
+      "px";
+    refreshTimer = scrollSpeed;
+  }
+  timer = setTimeout(() => RefreshStaticMenu(), activateSpeed);
+};
+
+const InitializeStaticMenu = () => {
+  document.getElementById("STATICMENU").style.right = leftWS + "px"; //처음에 오른쪽에 위치. left로 바꿔도.
+  document.getElementById("STATICMENU").style.top =
+    document.body.scrollTop + scrollStart + "px";
+  RefreshStaticMenu();
+};
+
+const removeClass = () => {
+  for (let i = 0; i < headerLi.length; i++) {
+    if (headerLi[i].className === "point") {
+      headerLi[i].classList.remove("point");
+    }
+  }
+};
+
+const handleScroll = () => {
   console.log(window.scrollY);
-  const SCROLLY = Math.ceil(window.scrollY);
-  const a = (SCROLLY > 300) * 1 + (SCROLLY <= 420) * 2;
-
-  switch (a) {
+  let scroll = Math.ceil(window.scrollY);
+  value =
+    (scroll < 250) * 0 +
+    (scroll >= 250 && scroll < 870) * 1 +
+    (scroll >= 870 && scroll < 1580) * 2 +
+    (scroll >= 1580 && scroll < 3285) * 3 +
+    (scroll >= 3285) * 4;
+  switch (value) {
+    case 0:
+      removeClass();
+      break;
     case 1:
-      for (let i = 0; i < li.length; i++) {
-        li[i].innerText = "▪";
-        li[i].style.color = "rgba(0, 0, 0, 0.637)";
-      }
+      removeClass();
+      headerLi[0].classList.add("point");
       break;
     case 2:
-      li[0].innerText = "About";
-      li[1].innerText = "Skills";
-      li[2].innerText = "Project";
-      li[3].innerText = "Git";
-      for (let i = 0; i < li.length; i++) {
-        li[i].style.color = "white";
-      }
+      removeClass();
+      headerLi[1].classList.add("point");
+      break;
+    case 3:
+      removeClass();
+      headerLi[2].classList.add("point");
+      break;
+    case 4:
+      removeClass();
+      headerLi[3].classList.add("point");
       break;
     default:
-      return;
+      break;
   }
 };
 
-//  following floating menu
-let num = 0;
-const handleWheel = e => {
-  const br = document.createElement("br");
-  const brAll = headerContents.querySelectorAll("br");
-  if (e.deltaY > 1.25) {
-    headerContents.append(br);
-  } else if (e.deltaY <= 1.25 && e.deltaY >= -1.25) {
-    for (let i = 0; i < brAll.length; i++) {
-      setTimeout(() => brAll[i].remove(), num);
-      num = num + 20;
-    }
-    num = 0;
-  } else if (e.deltaY < -1.25) {
-    headerContents.prepend(br);
+const scrollMove = value => {
+  window.scrollTo({
+    top: value,
+    behavior: "smooth"
+  });
+};
+
+const handleScrollMove = e => {
+  const event = e.target;
+  const target =
+    (event === headerLi[0]) * 1 +
+    (event === headerLi[1]) * 2 +
+    (event === headerLi[2]) * 3 +
+    (event === headerLi[3]) * 4;
+  switch (target) {
+    case 1:
+      scrollMove(534);
+      break;
+    case 2:
+      scrollMove(1144);
+      break;
+    case 3:
+      scrollMove(1865);
+      break;
+    case 4:
+      scrollMove(3400);
+      break;
+    default:
+      break;
   }
-  headerColor();
 };
 
-const init = () => {
-  window.addEventListener("wheel", handleWheel);
-};
+headerLi.forEach(li => {
+  li.addEventListener("click", handleScrollMove);
+});
 
-init();
+window.addEventListener("scroll", handleScroll);
+body.onload = InitializeStaticMenu();
