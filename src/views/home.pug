@@ -3,7 +3,7 @@ extends layouts/main.pug
 block content
     article
         section.section
-            .about
+            .about#jsAbout
                 .about__description
                     .about__subtitle about
                     div 
@@ -16,7 +16,7 @@ block content
                 .about__video
                     video#jsAboutVd(src="images/video/도자기.mp4", loop, muted)
         section.section
-            .skills
+            .skills#jsSkills
                 .skills__title
                     div skills
                 .skills__description
@@ -39,7 +39,7 @@ block content
                             img(src="images/icon/reactjs.png")
                             img(src="images/icon/typescript.png")
         section.section
-            .projects
+            .projects#jsProjects
                 .projects__title
                     div projects
                 .projects__items
@@ -54,7 +54,7 @@ block content
                                 br
                                 span 이 작업물을 통해 HTML 과 CSS를 알게 되었고 BEM의 개념을 배웠습니다.
                                 br
-                                a(href="https://github.com/ddamjengi1020/Kakao_Clone_V2.0_Training") https://github.com/ddamjengi1020/Kakao_Clone
+                                a(href="https://github.com/ddamjengi1020/Kakao_Clone_V2.0_Training") Github
                                 .skillIcon
                                     img(src="images/icon/html.png")
                                     img(src="images/icon/css.png")
@@ -67,7 +67,7 @@ block content
                                 br
                                 span 인스타그램 홈페이지를 보며 HTML을 직접 계획하고 작성해본 것으로 코딩에 흥미를 붙일 수 있었던 작업물입니다.
                                 br
-                                a(href="https://github.com/ddamjengi1020/Clone_Junstagram") https://github.com/ddamjengi1020/Clone_Junstagram
+                                a(href="https://github.com/ddamjengi1020/Clone_Junstagram") Github
                                 .skillIcon
                                     img(src="images/icon/html.png")
                                     img(src="images/icon/css.png")
@@ -83,7 +83,7 @@ block content
                                 span Local Storage를 이용한 작업물입니다.
                                 |localStorage의 기본 개념을 익혔고, 크롬-모멘텀의 페이지를 새로고침했을때에도 정보가 그대로 남는 기능과 OpenWeather API를 사용하여 현재 내 위치의 기온을 나타내주는 기능을 구현하였습니다.
                                 br
-                                a(href="https://github.com/ddamjengi1020/Clone_junmentum") https://github.com/ddamjengi1020/Clone_junmentum
+                                a(href="https://github.com/ddamjengi1020/Clone_junmentum") Github
                                 .skillIcon
                                     img(src="images/icon/html.png")
                                     img(src="images/icon/css.png")
@@ -97,7 +97,7 @@ block content
                                 br
                                 span 강의에서는 Canvas 소통과 채팅기능, localStorage를 통한 유저 로그인등을 구현하였고, 개인 챌린지로 타이머기능과 준비기능, 방 최대인원 제한기능등을 구현하였습니다.
                                 br
-                                a(href="https://github.com/ddamjengi1020/guess-mind") https://github.com/ddamjengi1020/guess-mind
+                                a(href="https://github.com/ddamjengi1020/guess-mind") Heroku
                                 .skillIcon
                                     img(src="images/icon/pug.png")
                                     img(src="images/icon/css.png")

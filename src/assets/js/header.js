@@ -1,6 +1,17 @@
 const body = document.querySelector("body");
 const headerUl = document.getElementById("jsHeaderContents");
+const about = document.getElementById("jsAbout");
+const skills = document.getElementById("jsSkills");
+const projects = document.getElementById("jsProjects");
+const footer = document.getElementById("jsFooter");
 const headerLi = document.querySelectorAll("li");
+
+const ABOUT = about.offsetTop;
+const SKILLS = skills.offsetTop;
+const PROJECTS = projects.offsetTop;
+const FOOTER = footer.offsetTop;
+
+const P = "point";
 
 let leftWS = 10; // 오른쪽 여백
 let topWS = 0; // 위쪽 여백
@@ -40,40 +51,40 @@ const InitializeStaticMenu = () => {
 
 const removeClass = () => {
   for (let i = 0; i < headerLi.length; i++) {
-    if (headerLi[i].className === "point") {
-      headerLi[i].classList.remove("point");
+    if (headerLi[i].className === P) {
+      headerLi[i].classList.remove(P);
     }
   }
 };
 
 const handleScroll = () => {
-  console.log(window.scrollY);
   let scroll = Math.ceil(window.scrollY);
+
   value =
-    (scroll < 250) * 0 +
-    (scroll >= 250 && scroll < 870) * 1 +
-    (scroll >= 870 && scroll < 1580) * 2 +
-    (scroll >= 1580 && scroll < 3285) * 3 +
-    (scroll >= 3285) * 4;
+    (scroll < ABOUT - 200) * 0 +
+    (scroll >= ABOUT - 200 && scroll < SKILLS - 200) * 1 +
+    (scroll >= SKILLS - 200 && scroll < PROJECTS - 200) * 2 +
+    (scroll >= PROJECTS - 200 && scroll < FOOTER - 300) * 3 +
+    (scroll >= FOOTER - 300) * 4;
   switch (value) {
     case 0:
       removeClass();
       break;
     case 1:
       removeClass();
-      headerLi[0].classList.add("point");
+      headerLi[0].classList.add(P);
       break;
     case 2:
       removeClass();
-      headerLi[1].classList.add("point");
+      headerLi[1].classList.add(P);
       break;
     case 3:
       removeClass();
-      headerLi[2].classList.add("point");
+      headerLi[2].classList.add(P);
       break;
     case 4:
       removeClass();
-      headerLi[3].classList.add("point");
+      headerLi[3].classList.add(P);
       break;
     default:
       break;
@@ -96,16 +107,16 @@ const handleScrollMove = e => {
     (event === headerLi[3]) * 4;
   switch (target) {
     case 1:
-      scrollMove(534);
+      scrollMove(ABOUT);
       break;
     case 2:
-      scrollMove(1144);
+      scrollMove(SKILLS);
       break;
     case 3:
-      scrollMove(1865);
+      scrollMove(PROJECTS);
       break;
     case 4:
-      scrollMove(3400);
+      scrollMove(FOOTER);
       break;
     default:
       break;
