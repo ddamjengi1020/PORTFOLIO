@@ -86,7 +86,8 @@
                         flex-direction: column;
                         align-items: center;
                         &:nth-child(2),
-                        &:nth-child(4){
+                        &:nth-child(4),
+                        &:nth-child(6){
                             flex-direction: column-reverse;
                         }
                         a{
@@ -102,15 +103,29 @@
                                 width: 80%;
                                 padding: 0;
                                 font-size: 16px;
+                                line-height: 1.5;
                             }
                         }
                     }
-                    .instaClone,
+                    .item{
+                        a{
+                            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.555);
+                        }
+                    }
+                    .instaClone{
+                        a{
+                            img{
+                                width: 300px;
+                                height: 310px;
+                            }
+                        }
+                    }
                     .momentumClone,
                     .bethelHomepage{
                         a{
                             img{
                                 width: 300px;
+                                height: 200px;
                             }
                         }
                     }
