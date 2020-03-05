@@ -13,6 +13,7 @@
   "author": "JUNO",
   "homepage": "https://github.com/ddamjengi1020/PORTFOLIO#readme",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
     "@babel/polyfill": "^7.8.3",
@@ -36,6 +37,11 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --ignore 'scss'",
-    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w"
+    "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
+    "build:server": "babel src --out-dir build --ignore src/assets,src/static,src/webpack.config.js",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "copy": "cp -R src/static build && cp -R src/views build && cp -R src/font build && cp -R src/images build",
+    "build": "npm run build:server && npm run build:assets && npm run copy",
+    "start": "node build/init.js"
   }
 }
