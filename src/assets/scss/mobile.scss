@@ -17,7 +17,7 @@
     }
     .title{
         top: 25%;
-        div{
+        .title__description{
             font-size: 12px;
         }
         .mask{
@@ -27,6 +27,9 @@
             height: 100%;
             .mask__slider{
                 animation: fadeIn_mobile 5s linear infinite alternate 1.3s;
+                div{
+                    height: 20px;
+                }
                 span{
                     font-size: 30px;
                 }

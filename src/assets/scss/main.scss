@@ -23,7 +23,7 @@ body,html{
     display: flex;
     flex-direction: column;
     align-items: center;
-    div{
+    .title__description{
         font-family: SCDream2;
         font-size: 16px;
         margin-bottom: 20px;
@@ -38,7 +38,7 @@ body,html{
             opacity: 0;
             animation: fadeIn 5s linear infinite alternate 1.3s;
             div{
-                height: 10px;
+                height: 30px;
             }
             span{
                 white-space: nowrap;
