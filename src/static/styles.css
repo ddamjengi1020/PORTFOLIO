@@ -1035,7 +1035,7 @@ article {
 
 @media screen and (max-width: 505px) {
   header {
-    z-index: 8; }
+    display: none; }
   footer .footer__container .footer__top {
     z-index: 9; }
   footer .footer__container .footer__title div {
