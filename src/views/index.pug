@@ -7,12 +7,10 @@ block content
                 .about__description
                     .about__subtitle about
                     div 
-                        p #[strong 끊임없이 공부하고 배워가는 개발자가 되고싶습니다.]
-                        p 저는 지금까지 나름 특별한 일을 해왔다고 생각합니다. '정년퇴직이 없고 가업을 만들어 갈 수 있는 직업을 찾자' 라는 생각으로 대학교 재학중 도자기 수업을 통해 도예가의 길을 걸었었습니다.공방에서 하루하루 끈질기게 또 어깨너머로 배워가며 기술을 익혔고 끝내 공방내 첫 관련직업 취업자가 되었습니다.
+                        p #[strong 끊임없이 발전하는 개발자가 되고싶습니다.]
+                        p '정년퇴직이 없는 직업을 찾자' 라는 생각으로 대학교 재학중 도자기 수업을 통해 도예가의 길을 걸었었습니다. 생활자기 생산하는 회사에서 일해보며 느낀 것은 "#[strong 실무경험]"의 중요성이었습니다. 공방에서의 배움의 시간이 길진 않았지만 공방에서 배운 기술들을 다시 재정비 하고 어떤 것은 다시 배우는 과정을 거쳤습니다.
                         br
-                        p 취업 후 일하면서 느낀 것은 "#[strong 실무경험]"의 중요성이었습니다. 공방에서의 배움의 시간이 길진 않았지만 공방에서 배운 기술들을 다시 재정비 하고 어떤 것은 다시 배우는 과정을 거쳤습니다.
-                        br
-                        p 물론 혼자 공부하고 강의를 들으며 '내 것'을 만드는건 매력적이지만 스스로의 발전을 위해선 실무경험이 더 확실하다고 생각합니다. 앉아서 생각하길 좋아하는 저에게 새로운 세계가 열리는 것과 새로운 기술의 발견을 통한 #[strong 발전]을 기대하고있습니다.
+                        p 프로그래밍도 사람들과의 소통, 최신기술을 경험하는데 있어서 실무경험이 중요하다고 생각합니다. 새로운 분야로 도전하는 중이지만 함께 일할 기회가 주어진다면 스스로 공부하고 #[strong 능동적으로] 배우고 먼저 행동하는, #[strong 발전]하는 개발자가 되겠습니다!   
                 .about__video
                     video#jsAboutVd(src="./videos/도자기.mp4", loop, muted)
         section.section
@@ -26,6 +24,8 @@ block content
                             img(src="./images/icon/javascript.png")
                             img(src="./images/icon/css.png")
                             img(src="./images/icon/nodejs.png")
+                            img(src="./images/icon/reactjs.png")
+                            img(src="./images/icon/typescript.png")
                             img.mongodb(src="./images/icon/mongoDB.png")
                             img.prisma(src="./images/icon/prismajs.png")
                     .partials
@@ -33,11 +33,6 @@ block content
                         .partials__icons
                             img(src="./images/icon/pug.png")
                             img(src="./images/icon/html.png")
-                    .partials
-                        div 기초단계(배우고 있음)
-                        .partials__icons
-                            img(src="./images/icon/reactjs.png")
-                            img(src="./images/icon/typescript.png")
         section.section
             .projects#jsProjects
                 .projects__title
@@ -124,23 +119,37 @@ block content
                                     img.gulp(src="./images/icon/gulp.png")
                                     img.socketio(src="./images/icon/heroku.png")
                                     img.socketio(src="./images/icon/socketio.png")
-                    .joonguin.item
-                        .joonguin-description.description
+                    .juntube.item
+                        .juntube-description.description
                             .description__item
-                                div 로그인기능
+                                div 유튜브 클론코딩
                                 br
-                                span NodeJS와 MongoDB를 사용하여 로그인 기능을 구현하였습니다.<br>
-                                |Mongoose(ODM)을 사용하여 CRUD중에 CD만 구현한 로그인 사이트입니다. NoSQL DB의 스키마구조와 모델의 개념을 알게 되었고 처음으로 프론트앤드부터 백앤드까지 모두 프로그래밍한 작업물입니다. 사이트 배포는 Heroku 클라우드 서비스를 이용하였습니다.
+                                span 유튜브 어플리케이션의 기능을 구현하였습니다.<br>
+                                |Mongoose을 사용하여 CRUD를 구현하였습니다. NoSQL DB의 스키마구조와 모델의 개념을 알게 되었고 처음으로 프론트앤드부터 백앤드까지 모두 프로그래밍한 작업물입니다. 사이트 배포는 Heroku 클라우드 서비스를 이용하였습니다.
                                 br
-                                a(href="https://github.com/ddamjengi1020/Joonguin" target="_blank") Github
+                                a(href="https://github.com/ddamjengi1020/Clone_Juntube" target="_blank") Github
                                 .skillIcon
                                     img(src="./images/icon/pug.png")
                                     img(src="./images/icon/sass.png")
                                     img(src="./images/icon/nodejs.png")
-                                    img.gulp(src="./images/icon/gulp.png")
+                                    img(src="./images/icon/webpack.png")
                                     img.socketio(src="./images/icon/mongoDB.png")
                                     img.socketio(src="./images/icon/heroku.png")
-                        a(href="https://joonguin.herokuapp.com/" target="_blank")
-                            img(src="./images/image/just-login.jpg")
-
+                        a(href="https://juntube.herokuapp.com/" target="_blank")
+                            img(src="./images/image/juntube.png")
+                    .junflix.item
+                        a(href="https://determined-hypatia-502a08.netlify.com" target="_blank")
+                            img(src="./images/image/junflix.png")
+                        .junflix-description.description
+                            .description__item
+                                div 팝콘타임 클론코딩
+                                br
+                                span 팝콘타임 앱을 보고 만든 무비앱입니다.<br>
+                                |처음 React 라이브러리를 사용하여 만든 사이트로 과정중에 컴포넌트와 라이프사이클에 대해 공부하였습니다. 'The movie DB' API를 통해 영화 데이터를 가져왔고, Netlify로 배포하였습니다.
+                                br
+                                a(href="https://github.com/ddamjengi1020/junflix" target="_blank") Github
+                                .skillIcon
+                                    img(src="./images/icon/reactjs.png")
+                                    img(src="./images/icon/styled-components.png")
+                                    img.socketio(src="./images/icon/netlify.png")
                     

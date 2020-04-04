@@ -7,34 +7,39 @@ const sass = require("gulp-sass");
 const pug = require("gulp-pug");
 const del = require("del");
 const ghPages = require("gulp-gh-pages");
+const webserver = require("gulp-webserver2");
 
 sass.compiler = require("node-sass");
 
 const paths = {
   video: {
     src: "src/videos/*",
-    dest: "bundle/videos"
+    dest: "bundle/videos",
   },
   img: {
     src: "src/images/**/*",
-    dest: "bundle/images"
+    dest: "bundle/images",
+    watch: "src/images/**/*",
   },
   scss: {
     src: "src/assets/scss/**/*.scss",
-    dest: "bundle"
+    dest: "bundle",
+    watch: "src/assets/scss/**/*.scss",
   },
   js: {
     src: "src/assets/js/*.js",
-    dest: "bundle"
+    dest: "bundle",
+    watch: "src/assets/js/**/*.js",
   },
   pug: {
     src: "src/views/**/*.pug",
-    dest: "bundle"
+    dest: "bundle",
+    watch: "src/views/**/*.pug",
   },
   font: {
     src: "src/font/*",
-    dest: "bundle/font"
-  }
+    dest: "bundle/font",
+  },
 };
 
 function clean() {
@@ -73,7 +78,7 @@ function styles() {
     .pipe(sass().on("error", sass.logError))
     .pipe(
       autoprefixer({
-        overrideBrowserlist: ["last 2 versions"]
+        overrideBrowserlist: ["last 2 versions"],
       })
     )
     .pipe(concat("styles.css"))
@@ -82,10 +87,22 @@ function styles() {
 }
 
 function template() {
-  return gulp
-    .src(paths.pug.src)
-    .pipe(pug())
-    .pipe(gulp.dest(paths.pug.dest));
+  return gulp.src(paths.pug.src).pipe(pug()).pipe(gulp.dest(paths.pug.dest));
+}
+
+function watch() {
+  gulp.watch(paths.js.watch, js);
+  gulp.watch(paths.scss.watch, styles);
+  gulp.watch(paths.pug.watch, template);
+}
+
+function server() {
+  return gulp.src("bundle").pipe(
+    webserver({
+      livereload: true,
+      open: true,
+    })
+  );
 }
 
 function _deploy() {
@@ -94,9 +111,11 @@ function _deploy() {
 
 const img = gulp.series([video, image]);
 
-const dev = gulp.series([clean, styles, template, js, font]);
+const dev = gulp.series([styles, template, js, font, server, watch]);
 
-const deploy = gulp.series([publishClean, _deploy]);
+const build = gulp.series([clean, styles, template, js, font, video, image]);
+
+const deploy = gulp.series([build, publishClean, _deploy]);
 
 module.exports.img = img;
 
