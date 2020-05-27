@@ -73,16 +73,10 @@ article{
                 margin-bottom: 60px;
             }
             .skills__description{
-                display: block;
+                display: flex;
+                justify-content: center;
                 .partials{
-                    &:not(:last-child){
-                        margin-bottom: 30px;
-                    }
-                    div{
-                        font-size: 23px;
-                        font-weight: bold;
-                        margin-bottom: 20px;
-                    }
+                    width: 100%;
                     .partials__icons{
                         img{
                             width: 100px;
